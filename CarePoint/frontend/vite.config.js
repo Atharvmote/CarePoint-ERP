@@ -11,12 +11,12 @@ export default defineConfig({
   
   build: {
     // Optimize output
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console logs in production
-      },
-    },
+    minify: 'esbuild',
+    // Remove console logs in production
+    target: 'esnext',
+  },
+  esbuild: {
+    drop: ['console', 'debugger'],
     
     // Code splitting
     rollupOptions: {
