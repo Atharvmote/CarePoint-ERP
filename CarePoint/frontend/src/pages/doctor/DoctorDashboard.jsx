@@ -5,7 +5,7 @@ import StatCard from "./StatCard";
 import MedicalRecordModal from "../../components/modals/MedicalRecordModal";
 import PrescriptionModal from "../../components/modals/PrescriptionModal";
 import AppointmentCompletionModal from "../../components/modals/AppointmentCompletionModal";
-import DoctorScheduleSettings from "../../components/doctor/DoctorScheduleSettings";
+import DoctorScheduleSettings from "../../components/Doctor/DoctorScheduleSettings";
 import VideoConsultationModal from "../../components/modals/VideoConsultationModal";
 import { Calendar, Clock, CheckCircle, PlayCircle, FileText, Pill, AlertCircle, Settings, Video } from "lucide-react";
 import api from "../../api/api";
