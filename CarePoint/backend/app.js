@@ -17,8 +17,9 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "*",
-    methods: ["GET", "POST"]
+    origin: process.env.FRONTEND_URL ? [process.env.FRONTEND_URL, "http://localhost:5173", "http://localhost:3000"] : ["http://localhost:5173", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    credentials: true
   },
   transports: ["websocket", "polling"],
   pingInterval: 30000, // Optimize ping interval
@@ -78,7 +79,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(compression()); // Enable gzip compression
 app.use(limiter); // Apply rate limiter
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000"],
+  origin: process.env.FRONTEND_URL ? [process.env.FRONTEND_URL, "http://localhost:5173", "http://localhost:3000"] : ["http://localhost:5173", "http://localhost:3000"],
   credentials: true
 }));
 app.use(helmet());
